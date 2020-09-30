@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
-import { bool, string, array } from 'prop-types';
+import PropTypes from 'prop-types';
 import {
   HamburgerSpin,
   HamburgerSlider,

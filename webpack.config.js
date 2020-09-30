@@ -12,7 +12,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         include: path.resolve(__dirname, 'src'),
-        exclude: /(node_modules|example|build)/,
+        exclude: /(node_modules|demo|build)/,
         use: {
           loader: 'babel-loader',
         },
@@ -20,11 +20,22 @@ module.exports = {
     ],
   },
   externals: {
-    react: 'commonjs react',
+    // react: {
+    //   commonjs: 'react',
+    //   commonjs2: 'react',
+    //   amd: 'React',
+    //   root: 'React',
+    // },
     'styled-components': {
       commonjs: 'styled-components',
       commonjs2: 'styled-components',
       amd: 'styled-components',
     },
+    // 'react-dom': {
+    //   commonjs: 'react-dom',
+    //   commonjs2: 'react-dom',
+    //   amd: 'ReactDOM',
+    //   root: 'ReactDOM',
+    // },
   },
 };

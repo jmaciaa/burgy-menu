@@ -1,0 +1,280 @@
+:root {
+  --light-color: white;
+  --dark-color: black;
+  --border: solid 2px black;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Balsamiq Sans', cursive;
+  letter-spacing: 0.1rem;
+}
+
+label {
+  display: block;
+  margin-top: 2rem;
+  position: relative;
+}
+
+select {
+  display: block;
+}
+
+h1 {
+  margin-top: 10rem;
+  text-align: center;
+}
+
+h3 {
+  margin: 15rem;
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+h2 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  padding: 0.2rem;
+  color: black;
+  border-bottom: 2px solid black;
+}
+
+h4 {
+  background-color: black;
+  color: white;
+  padding: 1rem;
+}
+
+/* form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+} */
+
+.form-section {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+input[type='text'] {
+  width: 100px;
+  text-align: center;
+  padding: 0.4rem;
+  border: solid 1px black;
+  font-size: 1.1rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
+}
+
+input[type='color'] {
+  -webkit-appearance: none;
+  border: solid 1px black;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+}
+input[type='color']::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+input[type='color']::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%;
+}
+
+.App {
+  display: flex;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.color-picker-circle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: solid 1px black;
+  width: 180px;
+  height: 180px;
+}
+
+.colors-container {
+  display: flex;
+}
+
+.colors-box {
+  display: flex;
+  flex-direction: column;
+  margin: 0 6rem;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.select {
+  display: block;
+  font-size: 16px;
+  font-family: sans-serif;
+  font-weight: 700;
+  color: --dark-color;
+  line-height: 1.3;
+  padding: 0.6em 1.4em 0.5em 0.8em;
+  width: 400px;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid #000000;
+  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+  border-radius: 0.5em;
+  appearance: none;
+  background-color: #fff;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+    linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+  background-repeat: no-repeat, repeat;
+  background-position: right 0.7em top 50%, 0 0;
+  background-size: 0.65em auto, 100%;
+}
+.select::-ms-expand {
+  display: none;
+}
+.select:hover {
+  border-color: #888;
+}
+.select:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 1px 1px black;
+  color: #222;
+  outline: none;
+}
+.select option {
+  font-weight: normal;
+}
+
+.customizations {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.burger-circle {
+  display: inline;
+}
+
+.radio-selection {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.radio-selection input[type='radio'] {
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+
+.radio-selection label {
+  display: flex;
+  font-size: 1rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 5.7rem;
+  width: 5.7rem;
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 50%;
+  margin: 1rem;
+  cursor: pointer;
+}
+
+.radio-selection label:hover {
+  background: rgb(241, 241, 241);
+}
+
+.radio-selection input[type='radio']:checked + label {
+  background: #000000;
+  color: white;
+}
+
+input[type='range'] {
+  -webkit-appearance: none;
+  margin: 10px 0;
+  width: 20rem;
+}
+input[type='range']:focus {
+  outline: none;
+}
+input[type='range']::-webkit-slider-runnable-track {
+  width: 10rem;
+  height: 12.8px;
+  cursor: pointer;
+  background: #ffffff;
+  border-radius: 25px;
+  border: 1px solid #000101;
+}
+input[type='range']::-webkit-slider-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #000000;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -5.5px;
+}
+
+.page {
+  height: 300px;
+}
+
+.routes-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow {
+  text-align: center;
+  margin: 8% 0;
+  color: #000000;
+  font-size: 5rem;
+}
+.bounce {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { bool } from 'prop-types';
+import PropTypes from 'prop-types';
 
 import { StyledMenu } from '../../styles';
 
 const Menu = ({ open, routes, setOpen }) => {
   const [image, setImage] = useState(routes[0].img);
 
-  const changeImage = (e) => {
+  const changeImage = e => {
     const img = e.target.attributes.getNamedItem('dataset').value;
     setImage(img);
   };
@@ -17,7 +17,7 @@ const Menu = ({ open, routes, setOpen }) => {
       <div className="background"></div>
       <div className="left">
         <div className="links">
-          {routes.map((route) => {
+          {routes.map(route => {
             return (
               <NavLink
                 key={route.name}
@@ -47,7 +47,9 @@ const Menu = ({ open, routes, setOpen }) => {
 };
 
 Menu.propTypes = {
-  open: bool.isRequired,
+  open: PropTypes.bool.isRequired,
+  routes: PropTypes.array.isRequired,
+  setOpen: PropTypes.func.isRequired,
 };
 
 export default Menu;
