@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import Prism from 'prismjs';
 import 'font-awesome/css/font-awesome.min.css';
 
@@ -12,16 +13,45 @@ import About from './mockPages/about';
 import Product from './mockPages/product';
 import Contact from './mockPages/contact';
 
+// images
 import home from './assets/home.jpg';
 import about from './assets/about-us.jpg';
 import work from './assets/work.jpg';
 import contact from './assets/contact.jpg';
 
 const routes = [
-  { path: '/', img: home, name: 'path-1', Component: Home },
-  { path: '/about', img: about, name: 'path-2', Component: About },
-  { path: '/work', img: work, name: 'path-3', Component: Product },
-  { path: '/contact', img: contact, name: 'path-4', Component: Contact },
+  {
+    img: home,
+    Component: props => (
+      <NavLink to="/" exact>
+        Home
+      </NavLink>
+    ),
+  },
+  {
+    img: about,
+    Component: props => (
+      <NavLink to="/about" exact>
+        About
+      </NavLink>
+    ),
+  },
+  {
+    img: work,
+    Component: props => (
+      <NavLink to="/product" exact>
+        Product
+      </NavLink>
+    ),
+  },
+  {
+    img: contact,
+    Component: props => (
+      <NavLink to="/contact" exact>
+        Contact
+      </NavLink>
+    ),
+  },
 ];
 
 const fonts = [
@@ -99,11 +129,40 @@ export default function App() {
   };
 
   const codeRoutes = `const routes = [
-      { path: '/', img: 'home.jpg', name: 'home', Component: Home },
-      { path: '/about', img: 'about-us.jpg', name: 'about us', Component: About },
-      { path: '/work', img: 'work.jpg', name: 'our work', Component: Product },
-      { path: '/contact', img: 'contact.jpg', name: 'contact', Component: Contact },
-    ];`;
+    {
+      img: home,
+      Component: (props) => (
+        <NavLink to="/" exact>
+          Home
+        </NavLink>
+      ),
+    },
+    {
+      img: about,
+      Component: (props) => (
+        <NavLink to="/about" exact>
+          About
+        </NavLink>
+      ),
+    },
+    {
+      img: work,
+      Component: (props) => (
+        <NavLink to="/product" exact>
+          Product
+        </NavLink>
+      ),
+    },
+    {
+      img: contact,
+      Component: (props) => (
+        <NavLink to="/contact" exact>
+          Contact
+        </NavLink>
+      ),
+    },
+  ];
+  `;
 
   const code = `<BurgyComponent
   routes= Insert your routes object here!!!!!

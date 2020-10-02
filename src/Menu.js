@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { StyledMenu } from '../../styles';
+import { StyledMenu } from './styles';
 
 const Menu = ({ open, routes, setOpen }) => {
   const [image, setImage] = useState(routes[0].img);
 
-  const changeImage = e => {
-    const img = e.target.attributes.getNamedItem('dataset').value;
+  let inputRef = useRef(new Array(routes.length));
+
+  const changeImage = (e, i) => {
+    const img = inputRef.current[i].attributes.dataset.value;
     setImage(img);
   };
 
@@ -18,18 +19,17 @@ const Menu = ({ open, routes, setOpen }) => {
       <div className="left">
         <div className="links">
           {routes.map(route => {
+            const Component = route.Component;
             return (
-              <NavLink
-                key={route.name}
-                dataset={route.img}
-                to={route.path}
-                className="link"
-                exact
+              <div
+                ref={el => (inputRef.current[i] = el)}
                 onClick={() => setOpen(false)}
-                onMouseEnter={changeImage}
+                onMouseEnter={e => changeImage(e, i)}
+                key={route.img}
+                dataset={route.img}
               >
-                {route.name}
-              </NavLink>
+                <Component />
+              </div>
             );
           })}
         </div>
