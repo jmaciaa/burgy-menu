@@ -7,12 +7,6 @@ import './App.css';
 import './prism.css';
 import BurgyComponent from 'burgy-menu';
 
-// Pages
-import Home from './mockPages/home';
-import About from './mockPages/about';
-import Product from './mockPages/product';
-import Contact from './mockPages/contact';
-
 // images
 import home from './assets/home.jpg';
 import about from './assets/about-us.jpg';
@@ -209,8 +203,7 @@ export default function App() {
             snippet provided below into your code. <br /> Enjoy!
           </p>
           <div class="arrow bounce">
-            // eslint-disable-next-line jsx-a11y/anchor-is-valid
-            <a className="fa fa-arrow-down fa-1x" href="/"></a>
+            <i className="fa fa-arrow-down fa-1x" href="/"></i>
           </div>
         </div>
         <div className="customizations">

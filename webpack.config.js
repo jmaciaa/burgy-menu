@@ -20,22 +20,22 @@ module.exports = {
     ],
   },
   externals: {
-    // react: {
-    //   commonjs: 'react',
-    //   commonjs2: 'react',
-    //   amd: 'React',
-    //   root: 'React',
-    // },
+    react: {
+      commonjs: 'react',
+      commonjs2: 'react',
+      amd: 'React',
+      root: 'React',
+    },
     'styled-components': {
       commonjs: 'styled-components',
       commonjs2: 'styled-components',
       amd: 'styled-components',
     },
-    // 'react-dom': {
-    //   commonjs: 'react-dom',
-    //   commonjs2: 'react-dom',
-    //   amd: 'ReactDOM',
-    //   root: 'ReactDOM',
-    // },
+    'react-dom': {
+      commonjs: 'react-dom',
+      commonjs2: 'react-dom',
+      amd: 'ReactDOM',
+      root: 'ReactDOM',
+    },
   },
 };

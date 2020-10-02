@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import { StyledMenu } from './styles';
@@ -18,7 +18,7 @@ const Menu = ({ open, routes, setOpen }) => {
       <div className="background"></div>
       <div className="left">
         <div className="links">
-          {routes.map(route => {
+          {routes.map((route, i) => {
             const Component = route.Component;
             return (
               <div

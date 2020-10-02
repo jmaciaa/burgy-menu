@@ -12,7 +12,7 @@ import {
   HamburgerStand,
 } from 'react-animated-burgers';
 
-import Menu from './components/Menu';
+import Menu from './Menu';
 import { StyledBurgy } from './styles';
 
 function BurgyComponent(props) {
