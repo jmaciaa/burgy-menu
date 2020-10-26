@@ -4,10 +4,6 @@
 
 Full-burger-menu is a highly customizable React component that allows you to create a burger menu in just a couple of minutes. It was especially designed for professional portfolios and small brands websites.
 
-  - Type some Markdown on the left
-  - See HTML in the right
-  - Magic
-
 # Getting Started
 
  ```sh
