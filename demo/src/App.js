@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import FullBurgerMenu from 'full-burger-menu';
 import Prism from 'prismjs';
 import 'font-awesome/css/font-awesome.min.css';
 
 import './App.css';
 import './prism.css';
-import FullBurgerMenu from 'full-burger-menu';
 
 // images
 import home from './assets/home.jpg';
