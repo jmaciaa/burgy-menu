@@ -1,1 +1,1 @@
-export { default } from './Burgy';
+export { default } from './FullBurgerMenu';

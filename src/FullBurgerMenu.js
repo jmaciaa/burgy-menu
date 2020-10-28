@@ -13,9 +13,9 @@ import {
 } from 'react-animated-burgers';
 
 import Menu from './Menu';
-import { StyledBurgy } from './styles';
+import { StyledBurger } from './styles';
 
-function BurgyComponent(props) {
+function FullBurgerMenu(props) {
   const {
     routes = [],
     burger = 'hamburgerSlider',
@@ -24,9 +24,9 @@ function BurgyComponent(props) {
     primaryLight = 'red',
     primaryDark = 'blue',
     primaryFont = 'grey',
-    burgyCircle = true,
-    burgyLeft = '5%',
-    burgyTop = '3%',
+    burgerCircle = true,
+    burgerLeft = '5%',
+    burgerTop = '3%',
     fontFamily = 'Times New Roman',
   } = props;
 
@@ -60,7 +60,7 @@ function BurgyComponent(props) {
 
   return (
     <ThemeProvider theme={theme}>
-      <StyledBurgy>
+      <StyledBurger>
         <>
           <div className="btn">
             <Burger
@@ -73,12 +73,12 @@ function BurgyComponent(props) {
             <Menu open={isActive} setOpen={setIsActive} routes={routes} />
           </div>
         </>
-      </StyledBurgy>
+      </StyledBurger>
     </ThemeProvider>
   );
 }
 
-BurgyComponent.propTypes = {
+FullBurgerMenu.propTypes = {
   routes: PropTypes.array.isRequired,
   burger: PropTypes.string.isRequired,
   barColor: PropTypes.string.isRequired,
@@ -86,9 +86,9 @@ BurgyComponent.propTypes = {
   primaryLight: PropTypes.string.isRequired,
   primaryDark: PropTypes.string.isRequired,
   primaryFont: PropTypes.string.isRequired,
-  burgyCircle: PropTypes.bool.isRequired,
-  burgyLeft: PropTypes.string.isRequired,
-  burgyTop: PropTypes.string.isRequired,
+  burgerCircle: PropTypes.bool.isRequired,
+  burgerLeft: PropTypes.string.isRequired,
+  burgerTop: PropTypes.string.isRequired,
   fontFamily: PropTypes.string.isRequired,
 };
-export default BurgyComponent;
+export default FullBurgerMenu;

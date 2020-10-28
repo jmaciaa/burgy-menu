@@ -4,7 +4,7 @@ const Home = () => {
   return (
     <div>
       <h3>
-        Welcome to the Burgy Shop <br />
+        Welcome to the FullBurger Shop <br />
         Take your order below
       </h3>
     </div>

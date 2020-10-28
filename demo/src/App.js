@@ -5,7 +5,7 @@ import 'font-awesome/css/font-awesome.min.css';
 
 import './App.css';
 import './prism.css';
-import BurgyComponent from 'burgy-menu';
+import FullBurgerMenu from 'full-burger-menu';
 
 // images
 import home from './assets/home.jpg';
@@ -101,15 +101,16 @@ export default function App() {
     primaryLight: '#f5f5f5',
     primaryDark: '#000000',
     primaryFont: '#ffffff',
-    burgyCircle: false,
-    burgyLeft: '90%',
-    burgyTop: '3%',
+    burgerCircle: false,
+    burgerLeft: '90%',
+    burgerTop: '3%',
     fontFamily: 'Courier',
   });
 
   const handleChange = e => {
     const key = e.target.name;
-    const value = key === 'burgyTop' || key === 'burgyLeft' ? `${e.target.value}%` : e.target.value;
+    const value =
+      key === 'burgerTop' || key === 'burgerLeft' ? `${e.target.value}%` : e.target.value;
     const copy = { ...state };
     copy[key] = value;
     setState(copy);
@@ -118,7 +119,7 @@ export default function App() {
   const handleCircleChange = e => {
     console.log(e.target.value, e.target.name);
     setState(prevState => {
-      return { ...state, burgyCircle: !prevState.burgyCircle };
+      return { ...state, burgerCircle: !prevState.burgerCircle };
     });
   };
 
@@ -158,16 +159,16 @@ export default function App() {
   ];
   `;
 
-  const code = `<BurgyComponent
+  const code = `<FullBurgerMenu
   routes= Insert your routes object here!!!!!
   burger="${state.burger}"
   barColor="${state.barColor}"
   primaryLight="${state.primaryLight}"
   primaryDark="${state.primaryDark}"
   primaryFont="${state.primaryFont}"
-  burgyCircle={${state.burgyCircle}}
-  burgyLeft="${state.burgyLeft}"
-  burgyTop="${state.burgyTop}"
+  burgerCircle={${state.burgerCircle}}
+  burgerLeft="${state.burgerLeft}"
+  burgerTop="${state.burgerTop}"
   fontFamily="${state.fontFamily}"
   />;
 
@@ -179,7 +180,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <BurgyComponent
+      <FullBurgerMenu
         routes={routes}
         burger={state.burger}
         barColor={state.barColor}
@@ -187,19 +188,19 @@ export default function App() {
         primaryLight={state.primaryLight}
         primaryDark={state.primaryDark}
         primaryFont={state.primaryFont}
-        burgyCircle={state.burgyCircle}
-        burgyLeft={state.burgyLeft}
-        burgyTop={state.burgyTop}
+        burgerCircle={state.burgerCircle}
+        burgerLeft={state.burgerLeft}
+        burgerTop={state.burgerTop}
         fontFamily={state.fontFamily}
       />
       <div className="container">
         <div className="hero">
-          <h1>Welcome to React Burgy Menu</h1>
+          <h1>Welcome to Full Burger Menu</h1>
           <p>
-            React Burgy Menu is a customizable and super-easy to use React component for making
+            Full Burger Menu is a customizable and super-easy to use React component for making
             burger menus that display animated full-screen menus. The menu shows images linked to
             every option in the menu. For getting your own special burger just select the different
-            options you have below, do 'npm i react-burgy-menu' in you React app and copy the
+            options you have below, do 'npm i full-burger-menu' in you React app and copy the
             snippet provided below into your code. <br /> Enjoy!
           </p>
           <div class="arrow bounce">
@@ -208,7 +209,7 @@ export default function App() {
         </div>
         <div className="customizations">
           <form action="">
-            <h2>Choose your Burgy</h2>
+            <h2>Choose your Burger</h2>
             <div className="form-section">
               <h4>Burger Animation</h4>
               <div className="radio-selection">
@@ -252,7 +253,7 @@ export default function App() {
                   <input
                     type="radio"
                     id="true"
-                    name="burgyCircle"
+                    name="burgerCircle"
                     onChange={handleCircleChange}
                     value="true"
                   />
@@ -260,34 +261,34 @@ export default function App() {
                   <input
                     type="radio"
                     id="false"
-                    name="burgyCircle"
+                    name="burgerCircle"
                     onChange={handleCircleChange}
                     value="false"
-                    checked={!state.burgyCircle}
+                    checked={!state.burgerCircle}
                   />
                   <label htmlFor="false">No</label>
                 </div>
 
                 <h4>Burger Position</h4>
-                <label htmlFor="burgyTop">Position Y</label>
+                <label htmlFor="burgerTop">Position Y</label>
                 <input
                   type="range"
-                  name="burgyTop"
+                  name="burgerTop"
                   min="1"
                   max="100"
                   onChange={handleChange}
                 ></input>
-                <div>{state.burgyTop}</div>
-                <label htmlFor="burgyLeft">Position X</label>
+                <div>{state.burgerTop}</div>
+                <label htmlFor="burgerLeft">Position X</label>
                 <input
                   type="range"
-                  name="burgyLeft"
-                  id="burgyLeft"
+                  name="burgerLeft"
+                  id="burgerLeft"
                   min="1"
                   max="100"
                   onChange={handleChange}
                 ></input>
-                <div>{state.burgyLeft}</div>
+                <div>{state.burgerLeft}</div>
               </div>
             </div>
 

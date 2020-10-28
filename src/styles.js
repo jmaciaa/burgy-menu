@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledBurgy = styled.div`
+export const StyledBurger = styled.div`
   *,
   *::after,
   *::before {
@@ -17,12 +17,12 @@ export const StyledBurgy = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    top: ${({ theme }) => theme.burgyTop};
-    left: ${({ theme }) => theme.burgyLeft};
+    top: ${({ theme }) => theme.burgerTop};
+    left: ${({ theme }) => theme.burgerLeft};
     z-index: 10;
     border-radius: 50%;
-    border: ${({ theme }) => (theme.burgyCircle ? 'solid black 2px' : 'none')};
-    background: ${({ theme }) => (theme.burgyCircle ? 'white' : 'transparent')};
+    border: ${({ theme }) => (theme.burgerCircle ? 'solid black 2px' : 'none')};
+    background: ${({ theme }) => (theme.burgerCircle ? 'white' : 'transparent')};
     @media (max-width: ${({ theme }) => theme.mobile}) {
       height: 50px;
       width: 50px;
@@ -129,7 +129,3 @@ export const StyledMenu = styled.nav`
     }
   }
 `;
-
-/* &:hover > img {
-  background-image: ${({image})}'url("' + require(`../../assets/${image}`) + '")'
-} */
