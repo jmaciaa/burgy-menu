@@ -1,7 +1,5 @@
 # Full-burger-menu
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
-
 Full-burger-menu is a highly customizable React component that allows you to create a burger menu in just a couple of minutes. It was especially designed for professional portfolios and small brands websites.
 
 # Getting Started
