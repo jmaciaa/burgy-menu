@@ -28,6 +28,7 @@ function FullBurgerMenu(props) {
     burgerLeft = '5%',
     burgerTop = '3%',
     fontFamily = 'Times New Roman',
+    burgerWidth = 40,
   } = props;
 
   const [isActive, setIsActive] = useState(false);
@@ -66,7 +67,7 @@ function FullBurgerMenu(props) {
             <Burger
               {...{ isActive, toggleButton }}
               barColor={barColor}
-              buttonWidth={width > mobileWidth ? 40 : 20}
+              buttonWidth={width > mobileWidth ? burgerWidth : 20}
             />
           </div>
           <div>
@@ -90,5 +91,6 @@ FullBurgerMenu.propTypes = {
   burgerLeft: PropTypes.string.isRequired,
   burgerTop: PropTypes.string.isRequired,
   fontFamily: PropTypes.string.isRequired,
+  burgerWidth: PropTypes.number.isRequired,
 };
 export default FullBurgerMenu;

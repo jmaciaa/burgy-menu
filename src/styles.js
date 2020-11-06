@@ -11,8 +11,8 @@ export const StyledBurger = styled.div`
   }
 
   .btn {
-    height: 100px;
-    width: 100px;
+    height: ${({ theme }) => `${theme.burgerWidth * 2 + 10}px`};
+    width: ${({ theme }) => `${theme.burgerWidth * 2 + 10}px`};
     position: fixed;
     display: flex;
     justify-content: center;
@@ -80,11 +80,11 @@ export const StyledMenu = styled.nav`
       transition-delay: 0.7s;
     }
 
-    &:hover > a {
+    &:hover > div a {
       opacity: 0.5;
     }
 
-    &:hover > a:hover {
+    &:hover > div:hover a {
       opacity: 1;
     }
   }
