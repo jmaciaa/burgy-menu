@@ -1,20 +1,17 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import { StyledMenu } from './styles';
 
 const Menu = ({ open, routes, setOpen }) => {
-  const [image, setImage] = useState(routes[0].img);
+  let imgRef = useRef(null);
 
-  let inputRef = useRef(new Array(routes.length));
-
-  const changeImage = (e, i) => {
-    const img = inputRef.current[i].attributes.dataset.value;
-    setImage(img);
+  const changeImage = (e, img) => {
+    imgRef.style.backgroundImage = 'url("' + img + '")';
   };
 
   return (
-    <StyledMenu open={open}>
+    <StyledMenu open={open} firstRoute={routes[0]}>
       <div className="background"></div>
       <div className="left">
         <div className="links">
@@ -22,11 +19,9 @@ const Menu = ({ open, routes, setOpen }) => {
             const Component = route.Component;
             return (
               <div
-                ref={el => (inputRef.current[i] = el)}
                 onClick={() => setOpen(false)}
-                onMouseEnter={e => changeImage(e, i)}
+                onMouseEnter={e => changeImage(e, route.img)}
                 key={route.img}
-                dataset={route.img}
               >
                 <Component />
               </div>
@@ -35,12 +30,7 @@ const Menu = ({ open, routes, setOpen }) => {
         </div>
       </div>
       <div className="right">
-        <div
-          className="img"
-          style={{
-            backgroundImage: 'url("' + image + '")',
-          }}
-        ></div>
+        <div className="img" ref={el => (imgRef = el)}></div>
       </div>
     </StyledMenu>
   );

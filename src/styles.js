@@ -75,6 +75,7 @@ export const StyledMenu = styled.nav`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 
     @media (max-width: ${({ theme }) => theme.mobile}) {
       transition-delay: 0.7s;
@@ -86,6 +87,10 @@ export const StyledMenu = styled.nav`
 
     &:hover > div:hover a {
       opacity: 1;
+    }
+
+    & div {
+      margin: 0.5rem;
     }
   }
 
@@ -100,6 +105,7 @@ export const StyledMenu = styled.nav`
     left: 60%;
     width: 25%;
     border: solid 5px ${({ theme }) => theme.primaryDark};
+    background-image: ${({ firstRoute }) => 'url("' + firstRoute.img + '")'};
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
