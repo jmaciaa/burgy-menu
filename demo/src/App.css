@@ -6,9 +6,13 @@
 
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-family: 'Balsamiq Sans', cursive;
+  font-family: 'Poppins', sans-serif;
   letter-spacing: 0.1rem;
 }
+
+::-webkit-scrollbar {
+  display: none;
+  }
 
 label {
   display: block;
@@ -88,12 +92,6 @@ input[type='color']::-webkit-color-swatch-wrapper {
 input[type='color']::-webkit-color-swatch {
   border: none;
   border-radius: 50%;
-}
-
-.App {
-  display: flex;
-  max-width: 1000px;
-  margin: auto;
 }
 
 .hero {

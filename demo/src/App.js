@@ -104,7 +104,8 @@ export default function App() {
     burgerCircle: false,
     burgerLeft: '90%',
     burgerTop: '3%',
-    fontFamily: 'Courier',
+    fontFamily: 'Raleway',
+    burgerWidth: 45,
   });
 
   const handleChange = e => {
@@ -162,6 +163,7 @@ export default function App() {
   const code = `<FullBurgerMenu
   routes= Insert your routes object here!!!!!
   burger="${state.burger}"
+  burgerWidth="${state.burgerWidth}"
   barColor="${state.barColor}"
   primaryLight="${state.primaryLight}"
   primaryDark="${state.primaryDark}"
@@ -179,7 +181,8 @@ export default function App() {
   ))}`;
 
   return (
-    <div className="App">
+    // <div className="App">
+    <>
       <FullBurgerMenu
         routes={routes}
         burger={state.burger}
@@ -192,6 +195,7 @@ export default function App() {
         burgerLeft={state.burgerLeft}
         burgerTop={state.burgerTop}
         fontFamily={state.fontFamily}
+        burgerWidth={state.burgerWidth}
       />
       <div className="container">
         <div className="hero">
@@ -248,6 +252,17 @@ export default function App() {
                   />
                 </div>
 
+                <h4>Burger Size</h4>
+                <label htmlFor="burgerTop">Size</label>
+                <input
+                  type="range"
+                  name="burgerWidth"
+                  min="20"
+                  max="70"
+                  onChange={handleChange}
+                ></input>
+                <div>{state.burgerWidth} px</div>
+
                 <h4>Burguer Circle</h4>
                 <div className="radio-selection">
                   <input
@@ -274,6 +289,7 @@ export default function App() {
                 <input
                   type="range"
                   name="burgerTop"
+                  value={state.burgerTop.slice(0, -1)}
                   min="1"
                   max="100"
                   onChange={handleChange}
@@ -283,6 +299,7 @@ export default function App() {
                 <input
                   type="range"
                   name="burgerLeft"
+                  value={state.burgerLeft.slice(0, -1)}
                   id="burgerLeft"
                   min="1"
                   max="100"
@@ -388,6 +405,6 @@ export default function App() {
         </div>
         <div></div>
       </div>
-    </div>
+    </>
   );
 }
