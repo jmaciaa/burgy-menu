@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+const buildBgImgStr = ({ routes }) => {
+  return routes.reduce((acc, route) => {
+    return acc + 'url("' + route.img + '") ';
+  }, '');
+};
+
 export const StyledBurger = styled.div`
   *,
   *::after,
@@ -42,6 +48,16 @@ export const StyledMenu = styled.nav`
   width: 100%;
   transition: transform 0.7s cubic-bezier(0.52, 0.16, 0.04, 0.95);
   transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
+
+  // Preloading images
+  &::after {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    z-index: -1;
+    content: ${buildBgImgStr};
+  }
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
   }
@@ -105,7 +121,7 @@ export const StyledMenu = styled.nav`
     left: 60%;
     width: 25%;
     border: solid 5px ${({ theme }) => theme.primaryDark};
-    background-image: ${({ firstRoute }) => 'url("' + firstRoute.img + '")'};
+    background-image: ${({ routes }) => 'url("' + routes[0].img + '")'};
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

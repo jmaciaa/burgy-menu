@@ -11,7 +11,7 @@ const Menu = ({ open, routes, setOpen }) => {
   };
 
   return (
-    <StyledMenu open={open} firstRoute={routes[0]}>
+    <StyledMenu open={open} routes={routes}>
       <div className="background"></div>
       <div className="left">
         <div className="links">
