@@ -39,6 +39,11 @@ function FullBurgerMenu(props) {
     window.addEventListener('resize', () => setWidth(window.innerWidth));
   }, []);
 
+  useEffect(() => {
+    if (isActive) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = 'auto';
+  }, [isActive]);
+
   const mobileWidth = 576;
 
   const burgers = {
