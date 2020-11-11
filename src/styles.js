@@ -120,14 +120,13 @@ export const StyledMenu = styled.nav`
     top: 15%;
     left: 60%;
     width: 25%;
-    border: solid 5px ${({ theme }) => theme.primaryDark};
     background-image: ${({ routes }) => 'url("' + routes[0].img + '")'};
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     opacity: ${({ open }) => (open ? 1 : 0)};
-    transition: opacity 0.6s cubic-bezier(0.71, 0.64, 0.91, 0.97);
-    transition-delay: 1s;
+    transition: opacity 0.6s cubic-bezier(0.71, 0.64, 0.91, 0.97) 1s,
+      background-image 0.3s cubic-bezier(0.71, 0.64, 0.91, 0.97);
     @media (max-width: ${({ theme }) => theme.mobile}) {
       display: none;
     }
@@ -139,7 +138,7 @@ export const StyledMenu = styled.nav`
     text-align: center;
     width: 100%;
     cursor: pointer;
-    letter-spacing: -0.1rem;
+    letter-spacing: 0.2rem;
     color: ${({ theme }) => theme.primaryFont};
     text-decoration: none;
     transition: opacity 0.2s cubic-bezier(0.71, 0.64, 0.91, 0.97);
