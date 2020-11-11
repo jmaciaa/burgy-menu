@@ -9,8 +9,8 @@ import './prism.css';
 
 // images
 import home from './assets/home.jpg';
-import about from './assets/about-us.jpg';
-import work from './assets/work.jpg';
+import about from './assets/about.jpg';
+import product from './assets/product.jpg';
 import contact from './assets/contact.jpg';
 
 const routes = [
@@ -31,7 +31,7 @@ const routes = [
     ),
   },
   {
-    img: work,
+    img: product,
     Component: props => (
       <NavLink to="/product" exact>
         Product
@@ -49,11 +49,11 @@ const routes = [
 ];
 
 const fonts = [
-  'Courier',
+  'Georgia',
   'Arial',
   'Helvetica',
   'Gill Sans',
-  'Lucida sANS',
+  'Lucida Sans',
   'Franklin Gothic Medium',
   'Trebuchet MS',
   'Tahoma',
@@ -65,21 +65,6 @@ const fonts = [
   'Arial Narrow Bold',
   'Calibri',
   'Arial Narrow',
-  'Courier, monospace',
-  'Lucidatypewriter, monospace',
-  'Fixed, monospace',
-  'monospace',
-  'Comic Sans, Comic Sans MS, cursive',
-  'Zapf Chancery, cursive',
-  'Coronetscript, cursive',
-  'Florence, cursive',
-  'Parkavenue, cursive',
-  'Impact, fantasy',
-  'Arnoldboecklin, fantasy',
-  'Oldtown, fantasy',
-  'Blippo, fantasy',
-  'Brushstroke, fantasy',
-  'fantasy',
 ];
 
 const burgers = [
@@ -98,14 +83,14 @@ export default function App() {
     routes: routes,
     burger: 'hamburgerSlider',
     barColor: '#000000',
-    primaryLight: '#f5f5f5',
-    primaryDark: '#000000',
+    primaryLight: '#f2f2f2',
+    primaryDark: '#d4d7d9',
     primaryFont: '#ffffff',
     burgerCircle: false,
     burgerLeft: '90%',
     burgerTop: '3%',
-    fontFamily: 'Raleway',
-    burgerWidth: 45,
+    fontFamily: 'Georgia',
+    burgerWidth: 50,
   });
 
   const handleChange = e => {
