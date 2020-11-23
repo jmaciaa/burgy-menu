@@ -189,6 +189,7 @@ export default function App() {
         <div className="hero">
           <h1>Welcome to Full Burger Menu</h1>
           <p>
+<<<<<<< HEAD
             Full Burger Menu is a customizable and super-easy to use React component for making an
             animated burger icon that when clicked it displaya a full-screen menus. The menu shows
             images linked to every option in the menu. For getting your own special burger just
@@ -196,6 +197,14 @@ export default function App() {
             right to see the preview. Next, do 'npm i full-burger-menu' in you React app and finally
             copy the snippet provided below into your code. <br /> Scroll down to select the
             different options!
+=======
+            Full Burger Menu is a customizable and super-easy to use React component for making
+            burger menus that display animated full-screen menus. The menu shows images linked to
+            every option in the menu. For getting your own special burger just select the different
+            options you have below. You can click on the burger icon in the top right to see the
+            preview. Next, do 'npm i full-burger-menu' in you React app and finally copy the snippet
+            provided below into your code. <br /> Scroll down to select the different options!
+>>>>>>> 7684e0695d912bb5a7c1655c3a3f76c81c2bb128
           </p>
           <div class="arrow bounce">
             <i className="fa fa-arrow-down fa-1x" href="/"></i>
