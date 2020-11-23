@@ -109,7 +109,10 @@ export default function App() {
     });
   };
 
-  const codeRoutes = `const routes = [
+  const codeRoutes = `
+  import { NavLink } from 'react-router-dom'
+
+  const routes = [
     {
       img: home,
       Component: (props) => (
@@ -186,11 +189,13 @@ export default function App() {
         <div className="hero">
           <h1>Welcome to Full Burger Menu</h1>
           <p>
-            Full Burger Menu is a customizable and super-easy to use React component for making
-            burger menus that display animated full-screen menus. The menu shows images linked to
-            every option in the menu. For getting your own special burger just select the different
-            options you have below, do 'npm i full-burger-menu' in you React app and copy the
-            snippet provided below into your code. <br /> Enjoy!
+            Full Burger Menu is a customizable and super-easy to use React component for making an
+            animated burger icon that when clicked it displaya a full-screen menus. The menu shows
+            images linked to every option in the menu. For getting your own special burger just
+            select the different options you have below. You can click on the burger icon in the top
+            right to see the preview. Next, do 'npm i full-burger-menu' in you React app and finally
+            copy the snippet provided below into your code. <br /> Scroll down to select the
+            different options!
           </p>
           <div class="arrow bounce">
             <i className="fa fa-arrow-down fa-1x" href="/"></i>
@@ -220,7 +225,7 @@ export default function App() {
 
               <div className="inner-section">
                 <label htmlFor="barColor">
-                  <h4>Burguer Color</h4>
+                  <h4>Burger Color</h4>
                 </label>
                 <div className="color-picker-circle">
                   <input
@@ -248,7 +253,7 @@ export default function App() {
                 ></input>
                 <div>{state.burgerWidth} px</div>
 
-                <h4>Burguer Circle</h4>
+                <h4>Burger Circle</h4>
                 <div className="radio-selection">
                   <input
                     type="radio"
@@ -373,8 +378,10 @@ export default function App() {
             <h2>One Last Thing...</h2>
             <p>
               In order for the router to work you should add in your App component an array called
-              'routes' that includes objects with a 'path', 'img', 'name' and 'Component'. Something
-              like this:
+              'routes' that includes objects with an 'img' and 'Component' properties. Something
+              like the example below. Remember also to 'npm i react-router-dom', import
+              BrowserRouter in the index.js of your React app and wrap the App component with the
+              BrowserRouter wrapper.
               <pre>
                 <code className="language-javascript">{codeRoutes}</code>
               </pre>
