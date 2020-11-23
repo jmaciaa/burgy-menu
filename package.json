@@ -1,6 +1,6 @@
 {
   "name": "full-burger-menu",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "React component for animated burger menu",
   "main": "./build/index.js",
   "scripts": {
