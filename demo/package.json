@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "font-awesome": "^4.7.0",
-    "full-burger-menu": "^1.0.1",
+    "full-burger-menu": "^1.0.3",
     "prismjs": "^1.21.0",
     "react-animated-burgers": "^1.2.8",
     "react-router-dom": "^5.2.0",
