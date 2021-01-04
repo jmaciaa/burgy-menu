@@ -1,6 +1,7 @@
 /node_modules
 /build
 .netlify
+notes.md
 
 .env
 **/.env

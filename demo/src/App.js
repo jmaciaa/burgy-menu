@@ -1,52 +1,19 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import FullBurgerMenu from 'full-burger-menu';
+// eslint-disable-next-line no-unused-vars
 import Prism from 'prismjs';
+import { slugify } from './utils';
 import 'font-awesome/css/font-awesome.min.css';
 
+// components
+import DataInput from './components/DataInput';
+import ColorPicker from './components/ColorPicker';
+import RangeInput from './components/RangeInput';
+
+// styles
 import './App.css';
 import './prism.css';
-
-// images
-import home from './assets/home.jpg';
-import about from './assets/about.jpg';
-import product from './assets/product.jpg';
-import contact from './assets/contact.jpg';
-
-const routes = [
-  {
-    img: home,
-    Component: props => (
-      <NavLink to="/" exact>
-        Home
-      </NavLink>
-    ),
-  },
-  {
-    img: about,
-    Component: props => (
-      <NavLink to="/about" exact>
-        About
-      </NavLink>
-    ),
-  },
-  {
-    img: product,
-    Component: props => (
-      <NavLink to="/product" exact>
-        Product
-      </NavLink>
-    ),
-  },
-  {
-    img: contact,
-    Component: props => (
-      <NavLink to="/contact" exact>
-        Contact
-      </NavLink>
-    ),
-  },
-];
 
 const fonts = [
   'Georgia',
@@ -79,6 +46,49 @@ const burgers = [
 ];
 
 export default function App() {
+  const [links, setLinks] = useState(['Home', 'About us', 'Our Work', 'Contact']);
+  const [images, setImages] = useState([
+    'https://images.unsplash.com/photo-1513161455079-7dc1de15ef3e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=640&h=960&fit=crop',
+    'https://images.unsplash.com/photo-1519090846590-90696b6a0af4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=640&h=960&fit=crop',
+    'https://images.unsplash.com/photo-1546435467-ed1e00be6eb2?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=640&h=960&fit=crop',
+    'https://images.unsplash.com/reserve/LJIZlzHgQ7WPSh5KVTCB_Typewriter.jpg?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=640&h=960&fit=crop',
+  ]);
+
+  const routes = [
+    {
+      img: images[0],
+      Component: props => (
+        <NavLink to={`/${slugify(links[0])}`} exact>
+          {links[0]}
+        </NavLink>
+      ),
+    },
+    {
+      img: images[1],
+      Component: props => (
+        <NavLink to={`/${slugify(links[1])}`} exact>
+          {links[1]}
+        </NavLink>
+      ),
+    },
+    {
+      img: images[2],
+      Component: props => (
+        <NavLink to={`/${slugify(links[2])}`} exact>
+          {links[2]}
+        </NavLink>
+      ),
+    },
+    {
+      img: images[3],
+      Component: props => (
+        <NavLink to={`/${slugify(links[3])}`} exact>
+          {links[3]}
+        </NavLink>
+      ),
+    },
+  ];
+
   const [state, setState] = useState({
     routes: routes,
     burger: 'hamburgerSlider',
@@ -102,8 +112,25 @@ export default function App() {
     setState(copy);
   };
 
+  const handleInputChange = (e, type) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    if (type === 'link') {
+      const newLinks = links.map((el, i) => {
+        if (i.toString() === name) return value;
+        return el;
+      });
+      setLinks(newLinks);
+    } else {
+      const newImages = images.map((el, i) => {
+        if (i.toString() === name) return value;
+        return el;
+      });
+      setImages(newImages);
+    }
+  };
+
   const handleCircleChange = e => {
-    console.log(e.target.value, e.target.name);
     setState(prevState => {
       return { ...state, burgerCircle: !prevState.burgerCircle };
     });
@@ -114,34 +141,35 @@ export default function App() {
 
   const routes = [
     {
-      img: home,
+      img: '${images[0]}',
       Component: (props) => (
-        <NavLink to="/" exact>
-          Home
+        <NavLink to="/${slugify(links[0])}" exact>
+          ${links[0]}
+        </NavLink>
+      ),
+
+    },
+    {
+      img: '${images[1]}',
+      Component: (props) => (
+        <NavLink to="/${slugify(links[1])}" exact>
+          ${links[1]}
         </NavLink>
       ),
     },
     {
-      img: about,
+      img: '${images[2]}',
       Component: (props) => (
-        <NavLink to="/about" exact>
-          About
+        <NavLink to="/${slugify(links[2])}" exact>
+          ${links[2]}
         </NavLink>
       ),
     },
     {
-      img: work,
+      img: '${images[3]}',
       Component: (props) => (
-        <NavLink to="/product" exact>
-          Product
-        </NavLink>
-      ),
-    },
-    {
-      img: contact,
-      Component: (props) => (
-        <NavLink to="/contact" exact>
-          Contact
+        <NavLink to="/${slugify(links[3])}" exact>
+          ${links[3]}
         </NavLink>
       ),
     },
@@ -149,7 +177,7 @@ export default function App() {
   `;
 
   const code = `<FullBurgerMenu
-  routes= Insert your routes object here!!!!!
+  routes={routes}
   burger="${state.burger}"
   burgerWidth="${state.burgerWidth}"
   barColor="${state.barColor}"
@@ -160,13 +188,12 @@ export default function App() {
   burgerLeft="${state.burgerLeft}"
   burgerTop="${state.burgerTop}"
   fontFamily="${state.fontFamily}"
-  />;
+  />`;
 
-  {routes.map(({ path, Component }) => (
-    <Route key={path} exact path={path} className="page">
-      <Component />
-    </Route>
-  ))}`;
+  // {routes.map(({ path, Component }) => (
+  //   <Route key={path} exact path={path} className="page">
+  //     <Component />
+  //   </Route>))
 
   return (
     // <div className="App">
@@ -202,6 +229,8 @@ export default function App() {
         </div>
         <div className="customizations">
           <form action="">
+            <DataInput elements={links} type="link" handleInputChange={handleInputChange} />
+            <DataInput elements={images} type="image" handleInputChange={handleInputChange} />
             <h2>Choose your Burger</h2>
             <div className="form-section">
               <h4>Burger Animation</h4>
@@ -223,23 +252,7 @@ export default function App() {
               </div>
 
               <div className="inner-section">
-                <label htmlFor="barColor">
-                  <h4>Burger Color</h4>
-                </label>
-                <div className="color-picker-circle">
-                  <input
-                    type="color"
-                    name="barColor"
-                    value={state.barColor}
-                    onChange={handleChange}
-                  />
-                  <input
-                    type="text"
-                    name="barColor"
-                    value={state.primaryLight}
-                    onChange={handleChange}
-                  />
-                </div>
+                <ColorPicker type="barColor" state={state} handleChange={handleChange} />
 
                 <h4>Burger Size</h4>
                 <label htmlFor="burgerTop">Size</label>
@@ -274,71 +287,16 @@ export default function App() {
                 </div>
 
                 <h4>Burger Position</h4>
-                <label htmlFor="burgerTop">Position Y</label>
-                <input
-                  type="range"
-                  name="burgerTop"
-                  value={state.burgerTop.slice(0, -1)}
-                  min="1"
-                  max="100"
-                  onChange={handleChange}
-                ></input>
-                <div>{state.burgerTop}</div>
-                <label htmlFor="burgerLeft">Position X</label>
-                <input
-                  type="range"
-                  name="burgerLeft"
-                  value={state.burgerLeft.slice(0, -1)}
-                  id="burgerLeft"
-                  min="1"
-                  max="100"
-                  onChange={handleChange}
-                ></input>
-                <div>{state.burgerLeft}</div>
+                <RangeInput type="burgerTop" state={state} handleChange={handleChange} />
+                <RangeInput type="burgerLeft" state={state} handleChange={handleChange} />
               </div>
             </div>
 
             <h2>Add Some Flavours</h2>
             <div className="form-section">
               <div className="colors-container">
-                <div className="colors-box">
-                  <label htmlFor="primaryLight">
-                    <h4>Primary Color</h4>
-                  </label>
-                  <div className="color-picker-circle">
-                    <input
-                      type="color"
-                      name="primaryLight"
-                      value={state.primaryLight}
-                      onChange={handleChange}
-                    />
-                    <input
-                      type="text"
-                      name="primaryLight"
-                      value={state.primaryLight}
-                      onChange={handleChange}
-                    />
-                  </div>
-                </div>
-                <div className="colors-box">
-                  <label htmlFor="primaryDark">
-                    <h4>Secondary Color</h4>
-                  </label>
-                  <div className="color-picker-circle">
-                    <input
-                      type="color"
-                      name="primaryDark"
-                      value={state.primaryDark}
-                      onChange={handleChange}
-                    />
-                    <input
-                      type="text"
-                      name="primaryDark"
-                      value={state.primaryDark}
-                      onChange={handleChange}
-                    />
-                  </div>
-                </div>
+                <ColorPicker type="primaryLight" state={state} handleChange={handleChange} />
+                <ColorPicker type="primaryDark" state={state} handleChange={handleChange} />
               </div>
 
               <label htmlFor="fontFamily">
@@ -354,44 +312,28 @@ export default function App() {
                   <option value={font}>{font}</option>
                 ))}
               </select>
-              <label htmlFor="primaryFont">
-                <h4>Font Color</h4>
-              </label>
-              <div className="color-picker-circle">
-                <input
-                  type="color"
-                  name="primaryFont"
-                  value={state.primaryFont}
-                  onChange={handleChange}
-                />
-                <input
-                  type="text"
-                  name="primaryFont"
-                  value={state.primaryFont}
-                  onChange={handleChange}
-                />
-              </div>
+              <ColorPicker type="primaryFont" state={state} handleChange={handleChange} />
             </div>
           </form>
+
           <div className="routes-section">
             <h2>One Last Thing...</h2>
-            <p>
-              In order for the router to work you should add in your App component an array called
-              'routes' that includes objects with an 'img' and 'Component' properties. Something
-              like the example below. Remember also to 'npm i react-router-dom', import
-              BrowserRouter in the index.js of your React app and wrap the App component with the
-              BrowserRouter wrapper.
-              <pre>
-                <code className="language-javascript">{codeRoutes}</code>
-              </pre>
-            </p>
+            <p>Copy/paste this into your project...</p>
+            <pre>
+              <code className="language-javascript">{codeRoutes}</code>
+            </pre>
           </div>
           <div className="code-section">
             <h2>Your burger is ready:</h2>
+            <p>And this...</p>
             <pre>
               <code className="language-javascript">{code}</code>
             </pre>
           </div>
+          <p>
+            Remember also to 'npm i react-router-dom', import BrowserRouter in the index.js of your
+            React app and wrap the App component with the BrowserRouter wrapper.
+          </p>
           <h2>Enjoy!</h2>
         </div>
         <div></div>

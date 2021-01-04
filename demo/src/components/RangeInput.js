@@ -1,0 +1,20 @@
+import React from 'react';
+
+const RangeInput = ({ type, state, handleChange }) => {
+  return (
+    <>
+      <label htmlFor={type}>{type}</label>
+      <input
+        type="range"
+        name={type}
+        value={state[type].slice(0, -1)}
+        min="1"
+        max="100"
+        onChange={handleChange}
+      ></input>
+      <div>{state[type]}</div>
+    </>
+  );
+};
+
+export default RangeInput;
