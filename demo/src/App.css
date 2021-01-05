@@ -13,7 +13,7 @@ body {
 
 ::-webkit-scrollbar {
   display: none;
-  }
+}
 
 label {
   display: block;
@@ -57,6 +57,20 @@ h4 {
   margin: 4rem 0 0 0;
 }
 
+.click-msg {
+  position: absolute;
+  top: 6rem;
+  left: 95rem;
+  transition: opacity 0.2s;
+}
+
+.click-msg i {
+  transform: rotate(130deg);
+  position: absolute;
+  left: 11.5rem;
+  top: 2rem;
+}
+
 /* form {
   display: flex;
   flex-direction: column;
@@ -71,22 +85,27 @@ h4 {
   align-items: center;
 }
 
+.hide {
+  display: none;
+}
+
 .form-section {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  padding: 1rem;
 }
 
 .fa {
   color: var(--dark-color);
-  text-shadow:  8px 8px 16px #c2c2c2, -8px -8px 16px #ffffff;
+  text-shadow: 8px 8px 16px #c2c2c2, -8px -8px 16px #ffffff;
 }
 
 input[type='text'] {
   width: 100px;
   text-align: center;
-  padding: 0.4rem;
+  padding: 0.7rem;
   border: solid 1px grey;
   font-size: 1.1rem;
   font-family: 'Courier New', Courier, monospace;
@@ -127,7 +146,7 @@ input[type='color']::-webkit-color-swatch {
   width: 180px;
   height: 180px;
   background: linear-gradient(145deg, #ffffff, #e6e6e6);
-  box-shadow:  var(--shadow);
+  box-shadow: var(--shadow);
 }
 
 .colors-container {
@@ -143,6 +162,20 @@ input[type='color']::-webkit-color-swatch {
 .container {
   display: flex;
   flex-wrap: wrap;
+}
+
+.data-input-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.data-input-container > :last-child {
+  flex-grow: 1;
+}
+
+input[id^='image'] {
+  width: 90%;
 }
 
 .select {
@@ -201,6 +234,7 @@ input[type='color']::-webkit-color-swatch {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: 2rem;
 }
 
 .radio-selection input[type='radio'] {
@@ -221,7 +255,7 @@ input[type='color']::-webkit-color-swatch {
   margin: 1rem;
   cursor: pointer;
   background: linear-gradient(145deg, #ffffff, #e6e6e6);
-  box-shadow:  var(--shadow);
+  box-shadow: var(--shadow);
 }
 
 .radio-selection label:hover {
@@ -248,7 +282,7 @@ input[type='range']::-webkit-slider-runnable-track {
   background: #ffffff;
   border-radius: 25px;
   border: 1px solid #ffffff;
-  box-shadow:  var(--shadow);
+  box-shadow: var(--shadow);
 }
 input[type='range']::-webkit-slider-thumb {
   height: 20px;

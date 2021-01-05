@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import FullBurgerMenu from 'full-burger-menu';
 // eslint-disable-next-line no-unused-vars
@@ -46,6 +46,7 @@ const burgers = [
 ];
 
 export default function App() {
+  const clickMsg = useRef(null);
   const [links, setLinks] = useState(['Home', 'About us', 'Our Work', 'Contact']);
   const [images, setImages] = useState([
     'https://images.unsplash.com/photo-1513161455079-7dc1de15ef3e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=640&h=960&fit=crop',
@@ -53,6 +54,15 @@ export default function App() {
     'https://images.unsplash.com/photo-1546435467-ed1e00be6eb2?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=640&h=960&fit=crop',
     'https://images.unsplash.com/reserve/LJIZlzHgQ7WPSh5KVTCB_Typewriter.jpg?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=640&h=960&fit=crop',
   ]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      console.log(clickMsg);
+      if (window.scrollY > 0) clickMsg.current.style.opacity = 0;
+      else clickMsg.current.style.opacity = 100;
+    };
+    window.addEventListener('scroll', handleScroll);
+  }, []);
 
   const routes = [
     {
@@ -214,6 +224,10 @@ export default function App() {
       />
       <div className="container">
         <div className="hero">
+          <div className="click-msg" ref={clickMsg}>
+            <h5>Click to see a preview!</h5>
+            <i className="fa fa-reply fa-2x"></i>
+          </div>
           <h1>Welcome to Full Burger Menu</h1>
           <p>
             Full Burger Menu is a customizable and super-easy to use React component for making
@@ -229,8 +243,6 @@ export default function App() {
         </div>
         <div className="customizations">
           <form action="">
-            <DataInput elements={links} type="link" handleInputChange={handleInputChange} />
-            <DataInput elements={images} type="image" handleInputChange={handleInputChange} />
             <h2>Choose your Burger</h2>
             <div className="form-section">
               <h4>Burger Animation</h4>
@@ -249,6 +261,11 @@ export default function App() {
                     </>
                   );
                 })}
+              </div>
+
+              <div className="data-input-container">
+                <DataInput elements={links} type="link" handleInputChange={handleInputChange} />
+                <DataInput elements={images} type="image" handleInputChange={handleInputChange} />
               </div>
 
               <div className="inner-section">

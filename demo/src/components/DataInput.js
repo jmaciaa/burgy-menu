@@ -1,13 +1,13 @@
 import React from 'react';
 
-const LinksInput = ({ elements, type, handleInputChange }) => {
+const DataInput = ({ elements, type, handleInputChange }) => {
   return (
     <div className="form-section">
-      <h2>{type}s Input</h2>
+      <h4>Add your {type}s</h4>
       {elements.map((element, i) => {
         return (
-          <label>
-            {type} {i + 1}
+          <>
+            <label htmlFor={`${type}${i}`}></label>
             <input
               key={`${type}${i}`}
               type="text"
@@ -16,11 +16,11 @@ const LinksInput = ({ elements, type, handleInputChange }) => {
               value={element}
               onChange={e => handleInputChange(e, type)}
             />
-          </label>
+          </>
         );
       })}
     </div>
   );
 };
 
-export default LinksInput;
+export default DataInput;
