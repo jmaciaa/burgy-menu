@@ -1,9 +1,9 @@
 import React from 'react';
 
-const RangeInput = ({ type, state, handleChange }) => {
+const RangeInput = ({ type, state, title, handleChange }) => {
   return (
     <>
-      <label htmlFor={type}>{type}</label>
+      <label htmlFor={type}>{title}</label>
       <input
         type="range"
         name={type}

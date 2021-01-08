@@ -208,6 +208,7 @@ export default function App() {
   return (
     // <div className="App">
     <>
+      <div className="reveal"></div>
       <FullBurgerMenu
         routes={routes}
         burger={state.burger}
@@ -269,7 +270,12 @@ export default function App() {
               </div>
 
               <div className="inner-section">
-                <ColorPicker type="barColor" state={state} handleChange={handleChange} />
+                <ColorPicker
+                  type="barColor"
+                  state={state}
+                  title="Burger Color"
+                  handleChange={handleChange}
+                />
 
                 <h4>Burger Size</h4>
                 <label htmlFor="burgerTop">Size</label>
@@ -304,16 +310,36 @@ export default function App() {
                 </div>
 
                 <h4>Burger Position</h4>
-                <RangeInput type="burgerTop" state={state} handleChange={handleChange} />
-                <RangeInput type="burgerLeft" state={state} handleChange={handleChange} />
+                <RangeInput
+                  type="burgerTop"
+                  state={state}
+                  title="Position Y"
+                  handleChange={handleChange}
+                />
+                <RangeInput
+                  type="burgerLeft"
+                  state={state}
+                  title="Position X"
+                  handleChange={handleChange}
+                />
               </div>
             </div>
 
             <h2>Add Some Flavours</h2>
             <div className="form-section">
               <div className="colors-container">
-                <ColorPicker type="primaryLight" state={state} handleChange={handleChange} />
-                <ColorPicker type="primaryDark" state={state} handleChange={handleChange} />
+                <ColorPicker
+                  type="primaryLight"
+                  state={state}
+                  title="Primary Color"
+                  handleChange={handleChange}
+                />
+                <ColorPicker
+                  type="primaryDark"
+                  state={state}
+                  title="Secondary Color"
+                  handleChange={handleChange}
+                />
               </div>
 
               <label htmlFor="fontFamily">
@@ -329,7 +355,12 @@ export default function App() {
                   <option value={font}>{font}</option>
                 ))}
               </select>
-              <ColorPicker type="primaryFont" state={state} handleChange={handleChange} />
+              <ColorPicker
+                type="primaryFont"
+                state={state}
+                title="Font Color"
+                handleChange={handleChange}
+              />
             </div>
           </form>
 
