@@ -5,12 +5,6 @@
   --shadow: 8px 8px 16px #c2c2c2, -8px -8px 16px #ffffff;
 }
 
-body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-family: 'Poppins', sans-serif;
-  letter-spacing: 0.1rem;
-}
-
 ::-webkit-scrollbar {
   display: none;
 }
@@ -97,19 +91,20 @@ h4 {
   position: fixed;
   height: 100vh;
   width: 100vw;
-  background: black;
+  background: white;
   z-index: 99;
   transform: translateX(100vw);
-  animation: slideOut 1s cubic-bezier(0.52, 0.16, 0.04, 0.95);
+  animation: slideOut 1.5s cubic-bezier(0.52, 0.16, 0.04, 0.95);
 }
 
-@keyframes slideOut {
-  0% {
-    transform: translateX(0vw);
-  }
-  100% {
-    transform: translateX(100vw);
-  }
+.reveal2 {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background: #f2f2f2;
+  z-index: 98;
+  transform: translateX(100vw);
+  animation: slideOut2 2s cubic-bezier(0.52, 0.16, 0.04, 0.95);
 }
 
 input[type='text'] {
@@ -131,9 +126,11 @@ input[type='color'] {
   cursor: pointer;
   margin-bottom: 1.5rem;
 }
+
 input[type='color']::-webkit-color-swatch-wrapper {
   padding: 0;
 }
+
 input[type='color']::-webkit-color-swatch {
   border: none;
   border-radius: 50%;
@@ -287,9 +284,11 @@ input[type='range'] {
   margin: 10px 0;
   width: 20rem;
 }
+
 input[type='range']:focus {
   outline: none;
 }
+
 input[type='range']::-webkit-slider-runnable-track {
   width: 10rem;
   height: 12.8px;
@@ -299,6 +298,7 @@ input[type='range']::-webkit-slider-runnable-track {
   border: 1px solid #ffffff;
   box-shadow: var(--shadow);
 }
+
 input[type='range']::-webkit-slider-thumb {
   height: 20px;
   width: 20px;
@@ -326,6 +326,7 @@ input[type='range']::-webkit-slider-thumb {
   color: #000000;
   font-size: 5rem;
 }
+
 .bounce {
   animation: bounce 2s infinite;
 }
@@ -343,5 +344,26 @@ input[type='range']::-webkit-slider-thumb {
   }
   60% {
     transform: translateY(-15px);
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translateX(0vw);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+@keyframes slideOut2 {
+  0% {
+    transform: translateX(0vw);
+  }
+  50% {
+    transform: translateX(0vw);
+  }
+  100% {
+    transform: translateX(100vw);
   }
 }

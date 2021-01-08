@@ -209,6 +209,7 @@ export default function App() {
     // <div className="App">
     <>
       <div className="reveal"></div>
+      <div className="reveal2"></div>
       <FullBurgerMenu
         routes={routes}
         burger={state.burger}
