@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import FullBurgerMenu from 'full-burger-menu';
-// eslint-disable-next-line no-unused-vars
-import Prism from 'prismjs';
 import { slugify } from './utils';
 import 'font-awesome/css/font-awesome.min.css';
 
@@ -10,10 +8,10 @@ import 'font-awesome/css/font-awesome.min.css';
 import DataInput from './components/DataInput';
 import ColorPicker from './components/ColorPicker';
 import RangeInput from './components/RangeInput';
+import CodeSnippet from './components/CodeSnippet';
 
 // styles
 import './App.css';
-import './prism.css';
 
 const fonts = [
   'Georgia',
@@ -365,19 +363,15 @@ export default function App() {
             </div>
           </form>
 
-          <div className="routes-section">
-            <h2>One Last Thing...</h2>
-            <p>Copy/paste this into your project...</p>
-            <pre>
-              <code className="language-javascript">{codeRoutes}</code>
-            </pre>
-          </div>
           <div className="code-section">
+            <h2>One Last Thing...</h2>
+            <p>Copy/paste this into your App.js...</p>
+            <CodeSnippet code={codeRoutes} />
+          </div>
+          <div className="code-section narrow">
             <h2>Your burger is ready:</h2>
-            <p>And this...</p>
-            <pre>
-              <code className="language-javascript">{code}</code>
-            </pre>
+            <p>Finally, add this to your App component:</p>
+            <CodeSnippet code={code} />
           </div>
           <p>
             Remember also to 'npm i react-router-dom', import BrowserRouter in the index.js of your
